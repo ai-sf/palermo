@@ -18,9 +18,9 @@ fb_appid:
 
 #Collections
 collections:
-  events:
+  eventi:
     output: true
-    permalink: /:categories/:year/:month/:day/:title/
+    permalink: /:collection/:name
 
 #gems:
 # - jekyll-redirect-from
