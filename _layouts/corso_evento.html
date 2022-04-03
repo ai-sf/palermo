@@ -1,0 +1,110 @@
+---
+layout: page
+title: {{ page.title }}
+---
+
+<!--
+Esempio di utilizzo (tutti i campi principali sono opzionali)
+ATTENZIONE! Le stringhe che contengono : ' -  vanno messe tra doppie virgolette "".
+Se invece ho nel testo delle " allora uso '' per contenerlo.
+Le liste possono avere un numero arbitrario di elementi (<50), basta aggiungerne con la stessa sintassi.
+ATTENZIONE!!!! Gli spazi sono importanti per separare i blocchi (per sicurezza usare questo esempio)
+e MAI USARE TAB, SOLO SPAZI.
+Tutti gli url sono relativi alla cartella principale di Github (es. url: downloads/latex_19/Pillole_di_LaTeX_I.pdf )
+Per una lista delle icone da mettere nel campo icon: https://material.io/resources/icons/?style=baseline
+---
+layout: corso_evento
+title:
+locandina:
+           url:
+           alt:
+incipit:
+icon_block_list:
+                  - name:
+                    text:
+                    icon: vedi sopra per una lista
+                  - name:
+                    text:
+                    icon:
+button_intro:
+button_list:
+             - url:
+               name:
+               download: attivo se impostato, non attivo se non specificato
+             - url:
+               name:
+               download:
+button_collection:
+                   - url:
+                     name:
+                     text:
+                     download:
+                   - url:
+                     name:
+                     text:
+                     download:
+social:
+        instagram:
+		facebook:
+credits:
+---
+-->
+
+<div class="row">
+	<div class="col l8 offset-l2 m10 offset-m1 s12">
+		{% if page.locandina %}
+			<div class="card">
+				<div class="card-image">
+					<div style="position: absolute; width: 100%; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5)); z-index:1;"></div>
+					<img src="{{ site.url }}{{ page.locandina }}">
+				</div>
+				<div class="card-content">
+					{% if page.title %}
+						<span class="card-title" style="z-index: 2; font-weight: bold;">{{ page.title }}</span>
+					{% endif %}
+					<p id="incipit">{{ content }}</p>
+					{% if page.credits %}
+						<div class="thanks" style="margin-top: 8px; font-weight: bold; display:block;">Ringraziamenti:</div>
+						<p>{{ page.credits }}</p>
+					{% endif %}
+				</div>
+				{% if page.icon_block_list %}
+					{% include icon_block_list.html icons=page.icon_block_list %}
+				{% endif %}
+				<div class="card-action">
+					{% for social in page.social %}
+						<a href="{{social.url}}">{{social.name}}</a>
+					{% endfor %}
+				</div>
+			</div>
+		{% else %}
+			<div class="card white">
+				<div class="card-content">
+					{% if page.title %}
+						<span class="card-title" style="color: black; font-weight: bold;">{{ page.title }}</span>
+					{% endif %}
+					<p id="incipit">{{ content }}</p>
+					{% if page.credits %}
+						<div class="thanks" style="margin-top: 8px; font-weight: bold; display:block;">Ringraziamenti:</div>
+						<p>{{ page.credits }}</p>
+					{% endif %}
+				</div>
+				{% if page.icon_block_list %}
+					{% include icon_block_list.html icons=page.icon_block_list %}
+				{% endif %}
+				<div class="card-action">
+					{% for social in page.social %}
+						<a target="_blank" href="{{social.url}}">{{social.name}}</a>
+					{% endfor %}
+				</div>
+			</div>
+		{% endif %}
+		{% if page.slides %}
+			<div class="carousel carousel-slider">
+				{% for slide in page.slides %}
+					<a class="carousel-item" href="#"><img src="{{slide.url}}"></a>
+				{% endfor %}
+			</div>
+		{% endif %}
+	</div>
+</div>

@@ -1,0 +1,34 @@
+---
+layout: default
+---
+<div class="container">
+
+	<h2 class="header">Prossimamente</h2>
+	<div id="index-banner">
+		<div class="row">
+			{% assign liveevents = 0 %}
+			{% for corso in site.corsi reversed %}
+			{% if corso.date >= site.time %}
+			{% assign liveevents = liveevents | plus: 1 %}
+			{% include event_card.html event=corso %}
+			{% endif %}
+			{% endfor %}
+			{% if liveevents == 0 %}
+			<ul class="collection"> 
+				<li class="collection-item"> Non ci sono corsi in programma. </li>
+			</ul>
+			{% endif %}
+		</div>
+	</div>
+
+	<h2 class="header">Corsi passati</h2>
+	<div id="index-banner">
+		<div class="row">
+			{% for corso in site.corsi reversed %}
+			{% if corso.date < site.time %}
+			{% include event_card.html event=corso %}
+			{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+</div>

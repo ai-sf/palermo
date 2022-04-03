@@ -1,0 +1,12 @@
+<div class="col s12 m12 l6 xl6 ">
+    <a href="{{ site.url }}{{include.event.url}}" class="card medium hoverable" style="display:block;">
+        <div class="card-image waves-effect waves-block waves-light">
+            <div style="position: absolute; width: 100%; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.2)); z-index:1;"></div>
+            <img src="{{ site.url }}{{ include.event.locandina }}">
+            <span class="card-title" style="z-index: 2; text-shadow: 2px 2px 0 #000; font-weight: bold;">{{ include.event.title }}</span>
+        </div>
+        <div class="card-content">
+            <p style="color: black">{{ item.descrizione }}</p>
+        </div>
+    </a>
+</div>

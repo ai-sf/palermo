@@ -1,7 +1,7 @@
 # Site settings
 # title: "Acr Ev"
 # description: "nome evento completo"
-url: "http://ai-sf.it/event_website_template" # the base hostname & protocol for your site
+url: "https://dariozar.github.io/palermo" # the base hostname & protocol for your site
 destination: ../site/
 locale: "it"
 
@@ -18,9 +18,12 @@ fb_appid:
 
 #Collections
 collections:
-  events:
+  eventi:
     output: true
-    permalink: /:categories/:year/:month/:day/:title/
+    permalink: /:collection/:name/
+  corsi:
+    output: true
+    permalink: /:collection/:name/
 
 plugins:
  - jekyll-redirect-from

@@ -1,4 +1,8 @@
-- text: Il comitato locale
-  url: none
+- text: Eventi
+  url: eventi
+- text: Corsi
+  url: corsi
+- text: Trebisonda (comitato Perugia)
+  url: http://ai-sf.it/perugia/Rubrica/
 - text: AISF
   url: http://www.ai-sf.it
